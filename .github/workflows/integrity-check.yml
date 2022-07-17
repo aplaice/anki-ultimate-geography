@@ -28,4 +28,15 @@ jobs:
       run: |
         pipenv run build_experimental
 
+    - name: Zip decks
+      run: |
+        ./zip_decks.sh
+
+    - name: Publish
+      uses: johnwbyrd/update-release@v1.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: build/Ultimate_Geography_everfresh_CS.zip build/Ultimate_Geography_everfresh_CS_EXTENDED.zip build/Ultimate_Geography_everfresh_DE.zip build/Ultimate_Geography_everfresh_DE_EXTENDED.zip build/Ultimate_Geography_everfresh_EN.zip build/Ultimate_Geography_everfresh_EN_EXTENDED.zip build/Ultimate_Geography_everfresh_ES.zip build/Ultimate_Geography_everfresh_ES_EXTENDED.zip build/Ultimate_Geography_everfresh_FR.zip build/Ultimate_Geography_everfresh_FR_EXTENDED.zip build/Ultimate_Geography_everfresh_NB.zip build/Ultimate_Geography_everfresh_NB_EXTENDED.zip build/Ultimate_Geography_everfresh_NL.zip build/Ultimate_Geography_everfresh_NL_EXTENDED.zip build/Ultimate_Geography_everfresh_PL.zip build/Ultimate_Geography_everfresh_PL_EXTENDED.zip build/Ultimate_Geography_everfresh_PT.zip build/Ultimate_Geography_everfresh_PT_EXTENDED.zip build/Ultimate_Geography_everfresh_RU.zip build/Ultimate_Geography_everfresh_RU_EXTENDED.zip build/Ultimate_Geography_everfresh_SV.zip build/Ultimate_Geography_everfresh_SV_EXTENDED.zip build/Ultimate_Geography_everfresh_ZH.zip build/Ultimate_Geography_everfresh_ZH_EXTENDED.zip
+        release: everfresh
+
       # TODO: Validate the csv file structure
