@@ -5,7 +5,7 @@ version="${1:-everfresh}"
 build_paths=""
 
 cd build/ || exit 1
-for lang_code in CS DE EN ES FR NB NL PL PT RU SV ZH
+for lang_code in CS DE EN ES FR IT NB NL PL PT RU SV ZH
 do
     standard_zip="Ultimate_Geography_${version}_${lang_code}.zip"
     extended_zip="Ultimate_Geography_${version}_${lang_code}_EXTENDED.zip"
