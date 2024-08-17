@@ -18,5 +18,6 @@ do
     build_paths="$build_paths build/$standard_zip build/$extended_zip build/$experimental_zip"
 done
 
-# Magic cookie for setting value https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-setting-a-value
-echo '::set-output name=DECK_PATHS::'"${build_paths}"
+# Environment file for setting value https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#environment-files
+# Only use if running on GitHub CI
+[ -n "$GITHUB_OUTPUT" ] && echo "DECK_PATHS=${build_paths}" >> $GITHUB_OUTPUT
