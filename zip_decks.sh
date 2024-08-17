@@ -4,8 +4,10 @@ version="${1:-everfresh}"
 
 build_paths=""
 
+LANG_CODES=$(head -n 1 src/data/guid.csv | sed 's/country,//' | sed 's/guid://g' | sed 's/guid/en/' | sed 's/,/ /g' | tr '[:lower:]' '[:upper:]')
+
 cd build/ || exit 1
-for lang_code in CS DE EN ES FR IT NB NL PL PT RU SV ZH
+for lang_code in $LANG_CODES
 do
     standard_zip="Ultimate_Geography_${version}_${lang_code}.zip"
     extended_zip="Ultimate_Geography_${version}_${lang_code}_EXTENDED.zip"
